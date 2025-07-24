@@ -2,14 +2,11 @@ from kivy.properties import NumericProperty, BooleanProperty
 from kivy.uix.button import Button
 from kivy.animation import Animation
 
-
 from kivy.uix.boxlayout import BoxLayout
-
 
 class Runner(BoxLayout):
    value = NumericProperty(0) # how many moves have been made
    finished = BooleanProperty(False) # have all the moves been made
-
 
    def __init__(self,
                total=10,  steptime=1, autorepeat=True,
@@ -17,9 +14,7 @@ class Runner(BoxLayout):
                btext_inprogress='Squat',
                **kwargs):
 
-
        super().__init__(**kwargs)
-
 
        self.total = total
        self.autorepeat = autorepeat
@@ -30,12 +25,6 @@ class Runner(BoxLayout):
        self.btn = Button(size_hint=(1, 0.1), pos_hint={'top': 1.0}, background_color=bcolor)
        self.add_widget(self.btn)
 
-
-   '''def restart(self, total):
-       self.total = total
-       self.start()'''
-
-
    def start(self):
        self.value = 0
        self.finished = False
@@ -43,7 +32,6 @@ class Runner(BoxLayout):
        if self.autorepeat:
            self.animation.repeat = True
        self.animation.start(self.btn)
-
 
    def next(self, widget, step):
        if step == 1.0:
